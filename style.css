@@ -57,3 +57,16 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(128, 128, 128);
 }
+
+/* Buttons */
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.5rem;
+    padding: 10px;
+}
+
+.equal-sign {
+    grid-column: -2;
+    grid-row: 2 /span 4;
+}
