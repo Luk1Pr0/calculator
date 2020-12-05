@@ -34,7 +34,7 @@ body {
 }
 
 .calculator-display h1 {
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 200;
