@@ -6,6 +6,15 @@ let firstValue = 0;
 let operatorValue = "";
 let awaitingNextValue = false;
 
+// Object to calculate first and second values depending on the operator selected
+const calculate = {
+    "/": (firstNumber, secondNumber) => firstNumber / secondNumber,
+    "*": (firstNumber, secondNumber) => firstNumber * secondNumber,
+    "-": (firstNumber, secondNumber) => firstNumber - secondNumber,
+    "+": (firstNumber, secondNumber) => firstNumber + secondNumber,
+    "=": (firstNumber, secondNumber) => secondNumber,
+};
+
 const sendNumberValue = (num) => {
     // Replace current display values if the first value is entered
     if (awaitingNextValue) {
@@ -26,15 +35,6 @@ const addDecimal = () => {
         calculatorDisplay.textContent = `${calculatorDisplay.textContent}.`;
     }
 }
-
-// Object to calculate first and second values depending on the operator selected
-const calculate = {
-    "/": (firstNumber, secondNumber) => firstNumber / secondNumber,
-    "*": (firstNumber, secondNumber) => firstNumber * secondNumber,
-    "-": (firstNumber, secondNumber) => firstNumber - secondNumber,
-    "+": (firstNumber, secondNumber) => firstNumber + secondNumber,
-    "=": (firstNumber, secondNumber) => secondNumber,
-};
 
 const useOperator = (operator) => {
     const currentValue = Number(calculatorDisplay.textContent);
@@ -58,6 +58,14 @@ const useOperator = (operator) => {
     operatorValue = operator;
 }
 
+// Reset all values and the display
+const resetAll = () => {
+    calculatorDisplay.textContent = "0";
+    firstValue = 0;
+    operatorValue = ""
+    awaitingNextValue = false;
+}
+
 // Add event listeners for numbers, operators and decimal point buttons
 inputBtns.forEach(btn => {
     if (!btn.classList.length) {
@@ -69,13 +77,4 @@ inputBtns.forEach(btn => {
     }
 })
 
-// Reset all values and the display
-const resetAll = () => {
-    calculatorDisplay.textContent = "0";
-    firstValue = 0;
-    operatorValue = ""
-    awaitingNextValue = false;
-}
-
-// Event listener
 clearBtn.addEventListener("click", resetAll); 
